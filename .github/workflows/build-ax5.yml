@@ -80,6 +80,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-adguardhome=n
           CONFIG_PACKAGE_luci-app-nft-qos=y
           CONFIG_PACKAGE_luci-app-banip=n
+          CONFIG_PACKAGE_luci-app-ssr-plus=n
           EOF
           make defconfig
 

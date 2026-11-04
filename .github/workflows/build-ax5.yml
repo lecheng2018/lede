@@ -75,11 +75,11 @@ jobs:
           CONFIG_PACKAGE_kmod-wireguard=y
           CONFIG_PACKAGE_wireguard-tools=y
           CONFIG_PACKAGE_luci-proto-wireguard=y
-          CONFIG_PACKAGE_luci-app-filebrowser=y
+          CONFIG_PACKAGE_luci-app-filebrowser=n
           CONFIG_PACKAGE_luci-app-smartdns=n
           CONFIG_PACKAGE_luci-app-adguardhome=n
           CONFIG_PACKAGE_luci-app-nft-qos=y
-          CONFIG_PACKAGE_luci-app-banip=y
+          CONFIG_PACKAGE_luci-app-banip=n
           EOF
           make defconfig
 

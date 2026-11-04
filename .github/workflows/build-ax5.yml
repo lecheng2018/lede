@@ -7,6 +7,10 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      matrix:
+        device: [redmi_ax5-jdcloud, xiaomi_rm1800]
 
     steps:
       - name: Checkout
@@ -53,7 +57,7 @@ jobs:
           cat > .config <<EOF
           CONFIG_TARGET_qualcommax=y
           CONFIG_TARGET_qualcommax_ipq60xx=y
-          CONFIG_TARGET_qualcommax_ipq60xx_DEVICE_redmi_ax5-jdcloud=y
+          CONFIG_TARGET_qualcommax_ipq60xx_DEVICE_${{ matrix.device }}=y
           CONFIG_TESTING_KERNEL=y
           CONFIG_BUSYBOX_CUSTOM=y
           CONFIG_PACKAGE_luci-i18n-base-zh-cn=y
@@ -89,5 +93,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ax5-firmware
+          name: ax5-firmware-${{ matrix.device }}
           path: bin/targets/qualcommax/ipq60xx/
